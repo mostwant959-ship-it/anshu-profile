@@ -1,0 +1,884 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #080808;
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Background glow */
+
+body::before {
+    content: "";
+    position: fixed;
+    width: 500px;
+    height: 500px;
+    top: -220px;
+    right: -150px;
+    background: #fff;
+    opacity: 0.035;
+    filter: blur(150px);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    width: 450px;
+    height: 450px;
+    bottom: -220px;
+    left: -180px;
+    background: #777;
+    opacity: 0.035;
+    filter: blur(150px);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+
+/* ================= PROFILE CARD ================= */
+
+.profile-card {
+    width: min(1100px, 92%);
+    margin: 60px auto 100px;
+    padding: 28px;
+
+    border: 1px solid #292929;
+    border-radius: 28px;
+
+    background: linear-gradient(
+        145deg,
+        #151515,
+        #0c0c0c
+    );
+
+    box-shadow:
+        0 30px 100px rgba(0, 0, 0, .6),
+        inset 0 1px 0 rgba(255,255,255,.04);
+
+    position: relative;
+    overflow: hidden;
+}
+
+.profile-card::before {
+    content: "";
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    top: -90px;
+    right: -90px;
+
+    border: 1px solid #333;
+    border-radius: 50%;
+    opacity: .4;
+}
+
+.profile-top,
+.profile-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.status {
+    color: #a5ffb0;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+}
+
+.id-number {
+    color: #666;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+}
+
+
+/* Profile content */
+
+.profile-content {
+    display: flex;
+    align-items: center;
+    gap: 70px;
+    padding: 70px 30px;
+}
+
+
+/* Profile image */
+
+.profile-image {
+    width: 230px;
+    height: 280px;
+
+    flex-shrink: 0;
+
+    overflow: hidden;
+
+    border: 1px solid #333;
+    border-radius: 20px;
+
+    background: #111;
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.5);
+
+    transition: .4s;
+}
+
+.profile-image:hover {
+    transform: translateY(-5px);
+    border-color: #555;
+}
+
+.profile-image img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+}
+
+
+/* Profile text */
+
+.small-title,
+.section-label {
+    color: #666;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+.profile-info h1 {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: clamp(55px, 9vw, 105px);
+    font-weight: 500;
+
+    letter-spacing: -5px;
+    line-height: .9;
+
+    margin: 14px 0 22px;
+}
+
+.role {
+    color: #aaa;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+.bio {
+    max-width: 450px;
+
+    color: #777;
+
+    font-size: 14px;
+    line-height: 1.8;
+
+    margin-top: 20px;
+}
+
+
+/* Buttons */
+
+.buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 30px;
+}
+
+.buttons a {
+    padding: 13px 20px;
+
+    border: 1px solid transparent;
+    border-radius: 10px;
+
+    background: #fff;
+    color: #080808;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    text-decoration: none;
+    letter-spacing: .5px;
+
+    transition: .3s;
+}
+
+.buttons a:hover {
+    transform: translateY(-3px);
+}
+
+.buttons .outline {
+    background: transparent;
+    color: #fff;
+    border-color: #333;
+}
+
+.buttons .outline:hover {
+    background: #fff;
+    color: #080808;
+}
+
+
+/* Footer of ID */
+
+.profile-footer {
+    border-top: 1px solid #242424;
+
+    padding-top: 18px;
+
+    color: #555;
+
+    font-size: 9px;
+    letter-spacing: 1.5px;
+}
+
+
+/* ================= SECTIONS ================= */
+
+.section {
+    width: min(1100px, 92%);
+    margin: 0 auto 120px;
+}
+
+.section h2 {
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: clamp(35px, 6vw, 65px);
+
+    letter-spacing: -3px;
+
+    margin: 15px 0 45px;
+}
+
+
+/* ================= SKILLS ================= */
+
+.skills {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.skill {
+    position: relative;
+
+    padding: 30px;
+
+    min-height: 270px;
+
+    border: 1px solid #252525;
+    border-radius: 18px;
+
+    background: #101010;
+
+    transition: .35s;
+
+    overflow: hidden;
+}
+
+.skill::after {
+    content: "";
+
+    position: absolute;
+
+    width: 120px;
+    height: 120px;
+
+    right: -60px;
+    bottom: -60px;
+
+    border: 1px solid #292929;
+
+    border-radius: 50%;
+
+    transition: .4s;
+}
+
+.skill:hover {
+    transform: translateY(-7px);
+    border-color: #444;
+}
+
+.skill:hover::after {
+    transform: scale(1.5);
+}
+
+.skill-number {
+    color: #555;
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+.skill h3 {
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: 27px;
+
+    margin-top: 45px;
+}
+
+.skill p {
+    max-width: 250px;
+
+    color: #666;
+
+    font-size: 13px;
+    line-height: 1.7;
+
+    margin-top: 10px;
+}
+
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 6px;
+
+    margin-top: 25px;
+}
+
+.skill-tags span {
+    padding: 7px 10px;
+
+    border: 1px solid #292929;
+    border-radius: 50px;
+
+    color: #777;
+
+    font-size: 9px;
+}
+
+
+/* ================= PROJECTS ================= */
+
+.projects {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 18px;
+}
+
+.project {
+    overflow: hidden;
+
+    border: 1px solid #252525;
+    border-radius: 20px;
+
+    background: #101010;
+
+    transition: .35s;
+}
+
+.project:hover {
+    transform: translateY(-7px);
+    border-color: #444;
+}
+
+.project-image {
+    width: 100%;
+    height: 300px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #333 0%,
+            #161616 40%,
+            #0c0c0c 100%
+        );
+
+    color: #555;
+
+    font-size: 11px;
+    letter-spacing: 3px;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: contain;
+}
+
+.project-image.placeholder span {
+    opacity: .6;
+}
+
+.project-info {
+    padding: 25px;
+}
+
+.project-info > span {
+    color: #666;
+
+    font-size: 9px;
+    letter-spacing: 1.5px;
+}
+
+.project-info h3 {
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: 27px;
+
+    margin: 10px 0;
+}
+
+.project-info p {
+    color: #777;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+
+    margin-bottom: 22px;
+}
+
+.project-info a {
+    color: #fff;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    text-decoration: none;
+
+    transition: .3s;
+}
+
+.project-info a:hover {
+    color: #aaa;
+}
+
+
+/* ================= ABOUT ================= */
+
+.about-text {
+    max-width: 750px;
+
+    color: #777;
+
+    font-size: 17px;
+
+    line-height: 1.9;
+}
+
+
+/* ================= CONTACT ================= */
+
+.contact {
+    width: min(1100px, 92%);
+
+    margin: 0 auto 100px;
+
+    padding: 70px 0;
+
+    border-top: 1px solid #222;
+    border-bottom: 1px solid #222;
+}
+
+.contact h2 {
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: clamp(45px, 8vw, 90px);
+
+    letter-spacing: -4px;
+
+    margin: 20px 0 40px;
+}
+
+.socials {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 10px;
+}
+
+.socials a {
+    padding: 14px 20px;
+
+    border: 1px solid #292929;
+    border-radius: 10px;
+
+    color: #fff;
+
+    font-size: 11px;
+
+    text-decoration: none;
+
+    transition: .3s;
+}
+
+.socials a:hover {
+    background: #fff;
+    color: #080808;
+}
+
+
+/* ================= FOOTER ================= */
+
+footer {
+    padding: 30px;
+
+    color: #444;
+
+    text-align: center;
+
+    font-size: 9px;
+
+    letter-spacing: 1.5px;
+}
+
+
+/* ================= ANSHU AI PAGE ================= */
+
+.project-page {
+    width: min(1100px, 92%);
+
+    margin: 30px auto 100px;
+}
+
+.back-button {
+    display: inline-block;
+
+    padding: 12px 18px;
+
+    border: 1px solid #292929;
+    border-radius: 10px;
+
+    color: #aaa;
+
+    font-size: 10px;
+
+    letter-spacing: 1px;
+
+    text-decoration: none;
+
+    transition: .3s;
+}
+
+.back-button:hover {
+    background: #fff;
+    color: #080808;
+}
+
+.project-hero {
+    padding: 100px 0 80px;
+}
+
+.project-hero h1 {
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: clamp(65px, 12vw, 150px);
+
+    letter-spacing: -7px;
+
+    line-height: .85;
+
+    margin: 15px 0;
+}
+
+.project-subtitle {
+    color: #777;
+
+    font-size: 15px;
+
+    margin-bottom: 45px;
+}
+
+.hero-image {
+    width: 100%;
+
+    min-height: 400px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    border: 1px solid #292929;
+    border-radius: 22px;
+
+    background: #111;
+}
+
+.hero-image img {
+    width: 100%;
+    height: auto;
+
+    max-height: 700px;
+
+    display: block;
+
+    object-fit: contain;
+}
+
+
+/* Project details */
+
+.project-details {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 80px;
+
+    padding: 100px 0;
+
+    border-top: 1px solid #222;
+}
+
+.project-details h2,
+.project-end h2 {
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: clamp(35px, 5vw, 60px);
+
+    letter-spacing: -3px;
+
+    margin-top: 15px;
+}
+
+.project-description {
+    color: #777;
+
+    font-size: 15px;
+
+    line-height: 1.9;
+}
+
+.project-description p + p {
+    margin-top: 25px;
+}
+
+
+/* Features */
+
+.features {
+    padding: 80px 0;
+
+    border-top: 1px solid #222;
+}
+
+.feature-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 15px;
+
+    margin-top: 35px;
+}
+
+.feature-card {
+    padding: 30px;
+
+    border: 1px solid #252525;
+    border-radius: 18px;
+
+    background: #101010;
+}
+
+.feature-card span {
+    color: #555;
+    font-size: 10px;
+}
+
+.feature-card h3 {
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: 23px;
+
+    margin: 40px 0 10px;
+}
+
+.feature-card p {
+    color: #666;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+}
+
+
+/* Technology */
+
+.technology {
+    padding: 80px 0;
+
+    border-top: 1px solid #222;
+}
+
+.tech-list {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    margin-top: 30px;
+}
+
+.tech-list span {
+    padding: 12px 18px;
+
+    border: 1px solid #292929;
+    border-radius: 50px;
+
+    color: #aaa;
+
+    font-size: 11px;
+}
+
+
+/* Project ending */
+
+.project-end {
+    padding: 100px 0;
+
+    border-top: 1px solid #222;
+}
+
+.project-end .back-button {
+    margin-top: 35px;
+}
+
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 700px) {
+
+    .profile-card {
+        width: 94%;
+
+        margin-top: 20px;
+
+        padding: 18px;
+
+        border-radius: 20px;
+    }
+
+    .profile-content {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 35px;
+
+        padding: 50px 10px;
+    }
+
+    .profile-image {
+        width: 150px;
+        height: 180px;
+    }
+
+    .profile-info h1 {
+        font-size: 60px;
+
+        letter-spacing: -3px;
+    }
+
+    .buttons {
+        flex-wrap: wrap;
+    }
+
+    .skills,
+    .projects {
+        grid-template-columns: 1fr;
+    }
+
+    .section {
+        margin-bottom: 80px;
+    }
+
+    .project-image {
+        height: auto;
+
+        min-height: 230px;
+    }
+
+    .project-image img {
+        width: 100%;
+        height: auto;
+
+        object-fit: contain;
+    }
+
+    .about-text {
+        font-size: 15px;
+    }
+
+    .profile-footer {
+        font-size: 8px;
+    }
+
+
+    /* Project page mobile */
+
+    .project-hero {
+        padding: 70px 0 50px;
+    }
+
+    .project-hero h1 {
+        font-size: 65px;
+
+        letter-spacing: -4px;
+    }
+
+    .hero-image {
+        min-height: 200px;
+
+        height: auto;
+    }
+
+    .hero-image img {
+        width: 100%;
+        height: auto;
+
+        max-height: none;
+    }
+
+    .project-details {
+        grid-template-columns: 1fr;
+
+        gap: 40px;
+
+        padding: 70px 0;
+    }
+
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project-end {
+        padding: 70px 0;
+    }
+
+}
