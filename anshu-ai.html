@@ -2,17 +2,33 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="ANSHU AI - Personal AI Assistant by Anshuuu">
 
     <title>ANSHU AI | Anshuuu</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect"
+        href="https://fonts.googleapis.com">
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
 
     <style>
+
+        /* =========================
+           RESET
+        ========================= */
 
         * {
             margin: 0;
@@ -32,11 +48,20 @@
             overflow-x: hidden;
         }
 
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+
+        /* =========================
+           BACKGROUND GRID
+        ========================= */
+
         body::before {
             content: "";
             position: fixed;
             inset: 0;
-            pointer-events: none;
 
             background-image:
                 linear-gradient(
@@ -51,41 +76,43 @@
 
             background-size: 50px 50px;
 
+            pointer-events: none;
             z-index: -1;
         }
 
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
 
-        img {
-            display: block;
-            width: 100%;
-        }
-
-
-        /* ===============================
+        /* =========================
            MAIN
-           =============================== */
+        ========================= */
 
         .project-page {
-            width: min(1120px, calc(100% - 40px));
+
+            width: min(
+                1120px,
+                calc(100% - 40px)
+            );
+
             margin: auto;
-            padding: 35px 0 100px;
+
+            padding:
+                35px
+                0
+                100px;
         }
 
 
-        /* ===============================
+        /* =========================
            BACK BUTTON
-           =============================== */
+        ========================= */
 
         .back-button {
+
             display: inline-block;
 
             color: #888;
 
             font-size: 11px;
+
             font-weight: 800;
 
             letter-spacing: 1.5px;
@@ -96,23 +123,24 @@
         }
 
         .back-button:hover {
+
             color: #fff;
-            transform: translateX(-5px);
+
+            transform:
+                translateX(-5px);
         }
 
 
-        /* ===============================
-           HERO
-           =============================== */
-
-        .project-hero {
-            margin-bottom: 110px;
-        }
+        /* =========================
+           LABEL
+        ========================= */
 
         .section-label {
+
             color: #666;
 
             font-size: 10px;
+
             font-weight: 800;
 
             letter-spacing: 3px;
@@ -120,10 +148,29 @@
             margin-bottom: 15px;
         }
 
-        .project-hero h1 {
-            font-family: "Space Grotesk", sans-serif;
 
-            font-size: clamp(65px, 11vw, 150px);
+        /* =========================
+           HERO
+        ========================= */
+
+        .project-hero {
+
+            margin-bottom: 110px;
+        }
+
+
+        .project-hero h1 {
+
+            font-family:
+                "Space Grotesk",
+                sans-serif;
+
+            font-size:
+                clamp(
+                    65px,
+                    11vw,
+                    150px
+                );
 
             line-height: 0.9;
 
@@ -132,7 +179,9 @@
             margin-bottom: 20px;
         }
 
+
         .project-subtitle {
+
             color: #888;
 
             font-size: 17px;
@@ -141,63 +190,109 @@
         }
 
 
-        /* ===============================
-           HERO IMAGE
-           =============================== */
+        /* =========================
+           IMAGE BOX
+        ========================= */
 
         .hero-image {
+
             width: 100%;
 
             aspect-ratio: 16 / 9;
 
             background: #111;
 
-            border: 1px solid rgba(255,255,255,0.1);
+            border:
+                1px solid
+                rgba(255,255,255,0.10);
 
             border-radius: 24px;
 
             overflow: hidden;
 
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
             box-shadow:
-                0 30px 80px rgba(0,0,0,0.4);
+                0 30px 80px
+                rgba(0,0,0,0.45);
         }
+
+
+        /* =========================
+           IMAGE
+        ========================= */
 
         .hero-image img {
+
             width: 100%;
+
             height: 100%;
 
-            object-fit: cover;
+            /*
+               IMPORTANT:
+               contain = image won't be cut
+            */
+
+            object-fit: contain;
+
+            object-position: center;
+
+            background: #111;
         }
 
 
-        /* ===============================
-           ABOUT
-           =============================== */
+        /* =========================
+           ABOUT PROJECT
+        ========================= */
 
         .project-details {
+
             display: grid;
 
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns:
+                1fr 1fr;
 
             gap: 80px;
 
-            padding: 85px 0;
+            padding:
+                85px
+                0;
 
-            border-top: 1px solid rgba(255,255,255,0.08);
-            border-bottom: 1px solid rgba(255,255,255,0.08);
+            border-top:
+                1px solid
+                rgba(255,255,255,0.08);
+
+            border-bottom:
+                1px solid
+                rgba(255,255,255,0.08);
         }
 
-        .project-details h2 {
-            font-family: "Space Grotesk", sans-serif;
 
-            font-size: clamp(40px, 5vw, 65px);
+        .project-details h2 {
+
+            font-family:
+                "Space Grotesk",
+                sans-serif;
+
+            font-size:
+                clamp(
+                    40px,
+                    5vw,
+                    65px
+                );
 
             line-height: 1;
 
             letter-spacing: -3px;
         }
 
+
         .project-description {
+
             color: #999;
 
             font-size: 16px;
@@ -205,20 +300,27 @@
             line-height: 1.8;
         }
 
+
         .project-description p + p {
+
             margin-top: 25px;
         }
 
 
-        /* ===============================
+        /* =========================
            FEATURES
-           =============================== */
+        ========================= */
 
         .features {
-            padding: 100px 0;
+
+            padding:
+                100px
+                0;
         }
 
+
         .feature-grid {
+
             display: grid;
 
             grid-template-columns:
@@ -227,7 +329,9 @@
             gap: 16px;
         }
 
+
         .feature-card {
+
             min-height: 250px;
 
             padding: 30px;
@@ -239,21 +343,30 @@
                     rgba(255,255,255,0.012)
                 );
 
-            border: 1px solid rgba(255,255,255,0.09);
+            border:
+                1px solid
+                rgba(255,255,255,0.09);
 
             border-radius: 20px;
 
-            transition: 0.3s ease;
+            transition:
+                transform 0.3s ease,
+                border-color 0.3s ease;
         }
+
 
         .feature-card:hover {
-            transform: translateY(-7px);
+
+            transform:
+                translateY(-7px);
 
             border-color:
-                rgba(255,255,255,0.2);
+                rgba(255,255,255,0.20);
         }
 
+
         .feature-card > span {
+
             color: #666;
 
             font-size: 11px;
@@ -261,8 +374,12 @@
             letter-spacing: 2px;
         }
 
+
         .feature-card h3 {
-            font-family: "Space Grotesk", sans-serif;
+
+            font-family:
+                "Space Grotesk",
+                sans-serif;
 
             font-size: 25px;
 
@@ -271,22 +388,28 @@
             margin-bottom: 10px;
         }
 
+
         .feature-card p {
+
             color: #888;
 
             font-size: 14px;
         }
 
 
-        /* ===============================
+        /* =========================
            TECHNOLOGY
-           =============================== */
+        ========================= */
 
         .technology {
-            padding-bottom: 100px;
+
+            padding-bottom:
+                100px;
         }
 
+
         .tech-list {
+
             display: flex;
 
             flex-wrap: wrap;
@@ -294,10 +417,16 @@
             gap: 10px;
         }
 
-        .tech-list span {
-            padding: 10px 17px;
 
-            border: 1px solid rgba(255,255,255,0.1);
+        .tech-list span {
+
+            padding:
+                10px
+                17px;
+
+            border:
+                1px solid
+                rgba(255,255,255,0.10);
 
             border-radius: 999px;
 
@@ -309,83 +438,123 @@
         }
 
 
-        /* ===============================
-           END
-           =============================== */
+        /* =========================
+           END SECTION
+        ========================= */
 
         .project-end {
-            padding: 90px 0 20px;
+
+            padding:
+                90px
+                0
+                20px;
 
             border-top:
-                1px solid rgba(255,255,255,0.08);
+                1px solid
+                rgba(255,255,255,0.08);
         }
 
-        .project-end h2 {
-            font-family: "Space Grotesk", sans-serif;
 
-            font-size: clamp(45px, 6vw, 80px);
+        .project-end h2 {
+
+            font-family:
+                "Space Grotesk",
+                sans-serif;
+
+            font-size:
+                clamp(
+                    45px,
+                    6vw,
+                    80px
+                );
 
             line-height: 1;
 
             letter-spacing: -4px;
 
-            margin: 15px 0 40px;
+            margin:
+                15px
+                0
+                40px;
         }
 
 
-        /* ===============================
+        /* =========================
            TABLET
-           =============================== */
+        ========================= */
 
         @media (max-width: 800px) {
 
             .project-page {
-                width: calc(100% - 30px);
+
+                width:
+                    calc(100% - 30px);
 
                 padding-top: 25px;
             }
 
+
             .project-details {
-                grid-template-columns: 1fr;
+
+                grid-template-columns:
+                    1fr;
 
                 gap: 35px;
 
-                padding: 65px 0;
+                padding:
+                    65px
+                    0;
             }
+
 
             .feature-grid {
-                grid-template-columns: 1fr;
+
+                grid-template-columns:
+                    1fr;
             }
 
+
             .feature-card {
+
                 min-height: 210px;
             }
         }
 
 
-        /* ===============================
+        /* =========================
            MOBILE
-           =============================== */
+        ========================= */
 
         @media (max-width: 600px) {
 
             .project-page {
-                width: calc(100% - 24px);
 
-                padding: 20px 0 60px;
+                width:
+                    calc(100% - 24px);
+
+                padding:
+                    20px
+                    0
+                    60px;
             }
 
+
             .back-button {
+
                 font-size: 9px;
 
                 margin-bottom: 45px;
             }
 
+
             .project-hero {
+
                 margin-bottom: 70px;
             }
 
+
             .project-hero h1 {
+
                 font-size: 58px;
 
                 letter-spacing: -4px;
@@ -393,71 +562,130 @@
                 line-height: 0.92;
             }
 
+
             .project-subtitle {
+
                 font-size: 14px;
 
                 margin-bottom: 30px;
             }
 
+
+            /* MOBILE IMAGE */
+
             .hero-image {
-                aspect-ratio: 4 / 3;
+
+                width: 100%;
+
+                aspect-ratio: 16 / 9;
 
                 border-radius: 16px;
+
+                background: #111;
             }
 
+
+            .hero-image img {
+
+                width: 100%;
+
+                height: 100%;
+
+                /*
+                   FULL IMAGE
+                   NO CROPPING
+                */
+
+                object-fit: contain;
+
+                object-position: center;
+            }
+
+
             .project-details {
-                padding: 55px 0;
+
+                padding:
+                    55px
+                    0;
 
                 gap: 30px;
             }
 
+
             .project-details h2 {
+
                 font-size: 39px;
 
                 letter-spacing: -2px;
             }
 
+
             .project-description {
+
                 font-size: 14px;
 
                 line-height: 1.75;
             }
 
+
             .features {
-                padding: 65px 0;
+
+                padding:
+                    65px
+                    0;
             }
 
+
             .feature-grid {
+
                 gap: 12px;
             }
 
+
             .feature-card {
+
                 min-height: 190px;
 
                 padding: 25px;
             }
 
+
             .feature-card h3 {
+
                 margin-top: 40px;
 
                 font-size: 22px;
             }
 
+
             .technology {
-                padding-bottom: 65px;
+
+                padding-bottom:
+                    65px;
             }
+
 
             .tech-list span {
+
                 font-size: 10px;
 
-                padding: 8px 13px;
+                padding:
+                    8px
+                    13px;
             }
+
 
             .project-end {
-                padding: 65px 0 20px;
+
+                padding:
+                    65px
+                    0
+                    20px;
             }
 
+
             .project-end h2 {
+
                 font-size: 45px;
 
                 letter-spacing: -2px;
@@ -471,17 +699,25 @@
 
 <body>
 
+
     <main class="project-page">
 
 
-        <!-- BACK -->
+        <!-- =========================
+             BACK
+        ========================= -->
 
-        <a href="index.html" class="back-button">
+        <a
+            href="index.html"
+            class="back-button"
+        >
             ← BACK TO PROFILE
         </a>
 
 
-        <!-- HERO -->
+        <!-- =========================
+             HERO
+        ========================= -->
 
         <section class="project-hero">
 
@@ -489,9 +725,11 @@
                 PROJECT / 01
             </p>
 
+
             <h1>
                 ANSHU AI
             </h1>
+
 
             <p class="project-subtitle">
                 Personal AI Assistant
@@ -502,7 +740,7 @@
 
                 <img
                     src="anshu-ai.png"
-                    alt="ANSHU AI"
+                    alt="ANSHU AI project screenshot"
                 >
 
             </div>
@@ -510,15 +748,19 @@
         </section>
 
 
-        <!-- ABOUT -->
+        <!-- =========================
+             ABOUT
+        ========================= -->
 
         <section class="project-details">
+
 
             <div>
 
                 <p class="section-label">
                     ABOUT PROJECT
                 </p>
+
 
                 <h2>
                     Building my own<br>
@@ -531,16 +773,19 @@
             <div class="project-description">
 
                 <p>
-                    ANSHU AI is a personal AI assistant
-                    project created to explore voice
-                    interaction, desktop automation
-                    and smart digital assistance.
+                    ANSHU AI is a personal AI
+                    assistant project created to
+                    explore voice interaction,
+                    desktop automation and smart
+                    digital assistance.
                 </p>
 
+
                 <p>
-                    The project is focused on creating
-                    a simple assistant that can interact
-                    with the user and perform useful
+                    The project is focused on
+                    creating a simple assistant
+                    that can interact with the
+                    user and perform useful
                     desktop tasks.
                 </p>
 
@@ -549,9 +794,12 @@
         </section>
 
 
-        <!-- FEATURES -->
+        <!-- =========================
+             FEATURES
+        ========================= -->
 
         <section class="features">
+
 
             <p class="section-label">
                 FEATURES
@@ -620,9 +868,12 @@
         </section>
 
 
-        <!-- TECHNOLOGY -->
+        <!-- =========================
+             TECHNOLOGY
+        ========================= -->
 
         <section class="technology">
+
 
             <p class="section-label">
                 TECHNOLOGY
@@ -631,26 +882,38 @@
 
             <div class="tech-list">
 
-                <span>Python</span>
+                <span>
+                    Python
+                </span>
 
-                <span>Tkinter</span>
+                <span>
+                    Tkinter
+                </span>
 
-                <span>Voice Recognition</span>
+                <span>
+                    Voice Recognition
+                </span>
 
-                <span>AI</span>
+                <span>
+                    AI
+                </span>
 
             </div>
 
         </section>
 
 
-        <!-- END -->
+        <!-- =========================
+             END
+        ========================= -->
 
         <section class="project-end">
+
 
             <p class="section-label">
                 END / PROJECT 01
             </p>
+
 
             <h2>
                 More projects<br>
@@ -658,7 +921,10 @@
             </h2>
 
 
-            <a href="index.html" class="back-button">
+            <a
+                href="index.html"
+                class="back-button"
+            >
                 ← BACK TO PROFILE
             </a>
 
@@ -666,6 +932,7 @@
 
 
     </main>
+
 
 </body>
 
