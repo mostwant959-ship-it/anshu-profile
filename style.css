@@ -1059,4 +1059,252 @@ footer {
 
         transition-duration: 0.01ms !important;
     }
+}/* =========================================
+   ANSHU AI PROJECT PAGE
+   ========================================= */
+
+.project-page {
+    width: min(1120px, calc(100% - 32px));
+    margin: 0 auto;
+    padding: 55px 0 80px;
+}
+
+.project-page .back-button {
+    display: inline-block;
+    color: #aaa;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    margin-bottom: 70px;
+    transition: 0.3s ease;
+}
+
+.project-page .back-button:hover {
+    color: #fff;
+    transform: translateX(-4px);
+}
+
+.project-hero {
+    margin-bottom: 100px;
+}
+
+.project-hero h1 {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: clamp(60px, 10vw, 150px);
+    line-height: 0.9;
+    letter-spacing: -7px;
+    margin: 15px 0 20px;
+}
+
+.project-subtitle {
+    color: #888;
+    font-size: 18px;
+    margin-bottom: 55px;
+}
+
+.hero-image {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    overflow: hidden;
+    background: #111;
+}
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ABOUT PROJECT */
+
+.project-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    padding: 80px 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+.project-details h2 {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: clamp(36px, 5vw, 65px);
+    line-height: 1;
+    letter-spacing: -3px;
+}
+
+.project-description {
+    color: #999;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.project-description p + p {
+    margin-top: 25px;
+}
+
+/* FEATURES */
+
+.features {
+    padding: 100px 0;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.feature-card {
+    min-height: 230px;
+    padding: 30px;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    background: rgba(255,255,255,0.025);
+    transition: 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--border-hover);
+    background: rgba(255,255,255,0.045);
+}
+
+.feature-card span {
+    color: #666;
+    font-size: 11px;
+    letter-spacing: 2px;
+}
+
+.feature-card h3 {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 24px;
+    margin: 55px 0 10px;
+}
+
+.feature-card p {
+    color: #888;
+    font-size: 14px;
+}
+
+/* TECHNOLOGY */
+
+.technology {
+    padding: 20px 0 100px;
+}
+
+.tech-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.tech-list span {
+    padding: 10px 16px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    color: #aaa;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+/* END */
+
+.project-end {
+    padding: 100px 0 40px;
+    border-top: 1px solid var(--border);
+}
+
+.project-end h2 {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: clamp(40px, 6vw, 75px);
+    line-height: 1;
+    letter-spacing: -3px;
+    margin: 15px 0 40px;
+}
+
+
+/* =========================================
+   PROJECT PAGE MOBILE
+   ========================================= */
+
+@media (max-width: 700px) {
+
+    .project-page {
+        width: calc(100% - 28px);
+        padding: 30px 0 60px;
+    }
+
+    .project-page .back-button {
+        margin-bottom: 45px;
+    }
+
+    .project-hero {
+        margin-bottom: 65px;
+    }
+
+    .project-hero h1 {
+        font-size: clamp(52px, 17vw, 90px);
+        letter-spacing: -4px;
+        word-break: normal;
+    }
+
+    .project-subtitle {
+        font-size: 15px;
+        margin-bottom: 30px;
+    }
+
+    .hero-image {
+        aspect-ratio: 16 / 10;
+        border-radius: 16px;
+    }
+
+    .project-details {
+        grid-template-columns: 1fr;
+        gap: 35px;
+        padding: 55px 0;
+    }
+
+    .project-details h2 {
+        font-size: 38px;
+        letter-spacing: -2px;
+    }
+
+    .project-description {
+        font-size: 15px;
+        line-height: 1.7;
+    }
+
+    .features {
+        padding: 65px 0;
+    }
+
+    .feature-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .feature-card {
+        min-height: 190px;
+        padding: 25px;
+    }
+
+    .feature-card h3 {
+        margin-top: 40px;
+    }
+
+    .technology {
+        padding-bottom: 65px;
+    }
+
+    .project-end {
+        padding: 65px 0 30px;
+    }
+
+    .project-end h2 {
+        font-size: 42px;
+        letter-spacing: -2px;
+    }
 }
