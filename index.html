@@ -1,536 +1,791 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
-    <!-- ================= GOOGLE SEARCH CONSOLE ================= -->
-
-    <meta
-        name="google-site-verification"
-        content="COhWnUBFJi7MUfRwGxveK1jQPTfBXpEVWeiXNHF2JGU"
-    >
-
-    <!-- ================= SEO ================= -->
+    <meta name="google-site-verification" content="COhWnUBFJi7MUfRwGxveK1jQPTfBXpEVWeiXNHF2JGU">
 
     <title>Anshuuu | Digital Profile</title>
+    <meta name="description" content="Anshuuu's digital profile. Explore coding projects, AI experiments, creative work, editing and gaming.">
+    <meta name="author" content="Anshuuu">
+    <meta name="robots" content="index, follow">
 
-    <meta
-        name="description"
-        content="Anshuuu's digital profile. Explore coding projects, AI experiments, creative work, editing and gaming."
-    >
+    <meta property="og:title" content="Anshuuu | Digital Profile">
+    <meta property="og:description" content="Explore Anshuuu's coding projects, AI experiments, creative work and digital profile.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mostwant959-ship-it.github.io/anshu-profile/">
+    <meta property="og:image" content="https://mostwant959-ship-it.github.io/anshu-profile/profile.png">
 
-    <meta
-        name="author"
-        content="Anshuuu"
-    >
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Anshuuu | Digital Profile">
+    <meta name="twitter:description" content="Explore Anshuuu's coding projects, AI experiments, creative work and digital profile.">
+    <meta name="twitter:image" content="https://mostwant959-ship-it.github.io/anshu-profile/profile.png">
 
-    <meta
-        name="robots"
-        content="index, follow"
-    >
+    <link rel="icon" type="image/png" href="profile.png">
 
-    <!-- ================= OPEN GRAPH ================= -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    <meta
-        property="og:title"
-        content="Anshuuu | Digital Profile"
-    >
+        html {
+            scroll-behavior: smooth;
+        }
 
-    <meta
-        property="og:description"
-        content="Explore Anshuuu's coding projects, AI experiments, creative work and digital profile."
-    >
+        body {
+            min-height: 100vh;
+            color: #eeeeee;
+            background:
+                radial-gradient(circle at 50% 0%, rgba(255,255,255,.08), transparent 30%),
+                linear-gradient(180deg, #101010 0%, #080808 45%, #050505 100%);
+            font-family: Inter, Arial, Helvetica, sans-serif;
+            overflow-x: hidden;
+        }
 
-    <meta
-        property="og:type"
-        content="website"
-    >
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            opacity: .12;
+            background-image:
+                linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+            background-size: 32px 32px;
+            mask-image: linear-gradient(to bottom, black, transparent 75%);
+        }
 
-    <meta
-        property="og:url"
-        content="https://mostwant959-ship-it.github.io/anshu-profile/"
-    >
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
 
-    <meta
-        property="og:image"
-        content="https://mostwant959-ship-it.github.io/anshu-profile/profile.png"
-    >
+        .hero {
+            min-height: 100vh;
+            padding: 55px 20px 110px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            position: relative;
+        }
 
-    <!-- ================= TWITTER / SOCIAL PREVIEW ================= -->
+        .wall {
+            width: min(980px, 100%);
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
 
-    <meta
-        name="twitter:card"
-        content="summary_large_image"
-    >
+        .wall-light {
+            position: absolute;
+            width: 520px;
+            height: 520px;
+            top: -170px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255,255,255,.045);
+            filter: blur(80px);
+            border-radius: 50%;
+            pointer-events: none;
+        }
 
-    <meta
-        name="twitter:title"
-        content="Anshuuu | Digital Profile"
-    >
+        .hanger {
+            position: relative;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            padding-top: 54px;
+            perspective: 900px;
+        }
 
-    <meta
-        name="twitter:description"
-        content="Explore Anshuuu's coding projects, AI experiments, creative work and digital profile."
-    >
+        .hook {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 26px;
+            height: 26px;
+            transform: translateX(-50%);
+            border: 4px solid #777;
+            border-bottom: 0;
+            border-radius: 50% 50% 0 0;
+            filter: drop-shadow(0 2px 2px #000);
+            z-index: 5;
+        }
 
-    <meta
-        name="twitter:image"
-        content="https://mostwant959-ship-it.github.io/anshu-profile/profile.png"
-    >
+        .hook::after {
+            content: "";
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #bbb;
+            left: 5px;
+            top: -4px;
+        }
 
-    <!-- ================= FAVICON ================= -->
+        .string {
+            position: absolute;
+            top: 17px;
+            width: 170px;
+            height: 82px;
+            border-top: 2px solid #6f6f6f;
+            border-radius: 50% 50% 0 0;
+            z-index: 2;
+        }
 
-    <link
-        rel="icon"
-        type="image/png"
-        href="profile.png"
-    >
+        .string::before,
+        .string::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            width: 2px;
+            height: 78px;
+            background: #666;
+        }
 
-    <!-- ================= STYLESHEET ================= -->
+        .string::before {
+            left: 0;
+            transform: rotate(29deg);
+            transform-origin: top;
+        }
 
-    <link
-        rel="stylesheet"
-        href="style.css"
-    >
+        .string::after {
+            right: 0;
+            transform: rotate(-29deg);
+            transform-origin: top;
+        }
 
+        .id-card {
+            width: min(720px, 94vw);
+            min-height: 390px;
+            position: relative;
+            z-index: 3;
+            padding: 25px;
+            border-radius: 18px;
+            border: 1px solid rgba(255,255,255,.18);
+            background:
+                linear-gradient(135deg, rgba(255,255,255,.10), rgba(255,255,255,.025)),
+                rgba(13,13,13,.96);
+            box-shadow:
+                0 35px 70px rgba(0,0,0,.65),
+                0 8px 20px rgba(0,0,0,.7),
+                inset 0 1px 0 rgba(255,255,255,.12);
+            backdrop-filter: blur(18px);
+            transform-origin: 50% 0;
+            animation: hangIn 1.25s cubic-bezier(.2,.8,.2,1) both,
+                       gentleSwing 6s ease-in-out 1.3s infinite;
+            transition: transform .35s ease, box-shadow .35s ease;
+        }
+
+        .id-card:hover {
+            animation-play-state: paused;
+            transform: rotate(0deg) translateY(-7px) scale(1.01);
+            box-shadow:
+                0 42px 85px rgba(0,0,0,.75),
+                0 0 45px rgba(255,255,255,.06),
+                inset 0 1px 0 rgba(255,255,255,.15);
+        }
+
+        @keyframes hangIn {
+            0% {
+                opacity: 0;
+                transform: translateY(-100px) rotate(-7deg);
+            }
+            65% {
+                opacity: 1;
+                transform: translateY(12px) rotate(2.5deg);
+            }
+            100% {
+                transform: translateY(0) rotate(-1deg);
+            }
+        }
+
+        @keyframes gentleSwing {
+            0%, 100% { transform: rotate(-1deg); }
+            50% { transform: rotate(1deg); }
+        }
+
+        .card-hole {
+            position: absolute;
+            top: 18px;
+            left: 50%;
+            width: 45px;
+            height: 7px;
+            transform: translateX(-50%);
+            border-radius: 20px;
+            background: #050505;
+            box-shadow: inset 0 1px 3px #000;
+        }
+
+        .card-top {
+            margin-top: 12px;
+            padding-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,.11);
+            font-size: 11px;
+            letter-spacing: 2px;
+        }
+
+        .status {
+            color: #b9ffca;
+        }
+
+        .status::before {
+            content: "";
+            display: inline-block;
+            width: 7px;
+            height: 7px;
+            margin-right: 7px;
+            border-radius: 50%;
+            background: #6eff91;
+            box-shadow: 0 0 12px #6eff91;
+        }
+
+        .card-content {
+            min-height: 275px;
+            display: grid;
+            grid-template-columns: 180px 1fr;
+            gap: 35px;
+            align-items: center;
+            padding: 30px 10px 20px;
+        }
+
+        .profile-image {
+            width: 170px;
+            height: 205px;
+            overflow: hidden;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,.18);
+            background: #151515;
+            box-shadow: 0 15px 35px rgba(0,0,0,.55);
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            filter: grayscale(12%);
+        }
+
+        .small-title,
+        .section-label {
+            color: #858585;
+            font-size: 11px;
+            letter-spacing: 3px;
+        }
+
+        .profile-info h1 {
+            margin: 5px 0 7px;
+            font-size: clamp(42px, 7vw, 72px);
+            line-height: .95;
+            letter-spacing: -3px;
+        }
+
+        .role {
+            font-size: 12px;
+            letter-spacing: 2px;
+            color: #cfcfcf;
+        }
+
+        .bio {
+            margin-top: 17px;
+            color: #999;
+            line-height: 1.7;
+            font-size: 14px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 23px;
+        }
+
+        .buttons a,
+        .socials a {
+            padding: 11px 15px;
+            border: 1px solid rgba(255,255,255,.18);
+            border-radius: 7px;
+            font-size: 10px;
+            letter-spacing: 1.5px;
+            transition: .25s ease;
+        }
+
+        .buttons a:first-child,
+        .socials a:hover {
+            background: #eeeeee;
+            color: #080808;
+        }
+
+        .buttons .outline:hover {
+            background: rgba(255,255,255,.08);
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            border-top: 1px solid rgba(255,255,255,.11);
+            padding-top: 15px;
+            color: #707070;
+            font-size: 9px;
+            letter-spacing: 2px;
+        }
+
+        .section {
+            width: min(980px, calc(100% - 40px));
+            margin: 0 auto;
+            padding: 100px 0;
+            border-top: 1px solid rgba(255,255,255,.08);
+        }
+
+        .section h2,
+        .contact h2 {
+            margin-top: 10px;
+            font-size: clamp(36px, 6vw, 60px);
+            letter-spacing: -2px;
+        }
+
+        .skills {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+            margin-top: 45px;
+        }
+
+        .skill {
+            padding: 25px;
+            min-height: 250px;
+            border: 1px solid rgba(255,255,255,.10);
+            border-radius: 14px;
+            background: rgba(255,255,255,.025);
+            transition: .3s ease;
+        }
+
+        .skill:hover,
+        .project:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255,255,255,.24);
+            background: rgba(255,255,255,.045);
+        }
+
+        .skill-number {
+            color: #666;
+            font-size: 11px;
+            letter-spacing: 2px;
+            margin-bottom: 55px;
+        }
+
+        .skill h3 {
+            font-size: 25px;
+            margin-bottom: 10px;
+        }
+
+        .skill p,
+        .project p,
+        .about-text {
+            color: #888;
+            line-height: 1.75;
+            font-size: 14px;
+        }
+
+        .skill-tags {
+            display: flex;
+            gap: 7px;
+            flex-wrap: wrap;
+            margin-top: 22px;
+        }
+
+        .skill-tags span {
+            padding: 6px 9px;
+            border-radius: 5px;
+            background: #151515;
+            color: #888;
+            font-size: 9px;
+            letter-spacing: 1px;
+        }
+
+        .projects {
+            display: grid;
+            gap: 18px;
+            margin-top: 45px;
+        }
+
+        .project {
+            display: grid;
+            grid-template-columns: 42% 1fr;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,.10);
+            border-radius: 14px;
+            background: rgba(255,255,255,.025);
+            transition: .3s ease;
+        }
+
+        .project-image {
+            min-height: 280px;
+            background: #111;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform .5s ease;
+        }
+
+        .project:hover .project-image img {
+            transform: scale(1.04);
+        }
+
+        .placeholder {
+            color: #444;
+            letter-spacing: 3px;
+            font-size: 10px;
+        }
+
+        .project-info {
+            padding: 35px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .project-info > span {
+            color: #666;
+            font-size: 9px;
+            letter-spacing: 2px;
+        }
+
+        .project-info h3 {
+            margin: 10px 0;
+            font-size: 30px;
+        }
+
+        .project-info a {
+            margin-top: 25px;
+            color: #ddd;
+            font-size: 10px;
+            letter-spacing: 2px;
+        }
+
+        .about-text {
+            max-width: 700px;
+            margin-top: 35px;
+            font-size: 17px;
+        }
+
+        .contact {
+            width: min(980px, calc(100% - 40px));
+            margin: 0 auto;
+            padding: 100px 0 120px;
+            border-top: 1px solid rgba(255,255,255,.08);
+        }
+
+        .socials {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 35px;
+        }
+
+        footer {
+            border-top: 1px solid rgba(255,255,255,.08);
+            padding: 25px 20px;
+            text-align: center;
+            color: #444;
+            font-size: 9px;
+            letter-spacing: 2px;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(35px);
+            transition: opacity .8s ease, transform .8s ease;
+        }
+
+        .reveal.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 720px) {
+            .hero {
+                padding-top: 35px;
+            }
+
+            .hanger {
+                padding-top: 48px;
+            }
+
+            .string {
+                width: 125px;
+                height: 65px;
+            }
+
+            .id-card {
+                min-height: auto;
+                padding: 18px;
+            }
+
+            .card-content {
+                grid-template-columns: 1fr;
+                gap: 22px;
+                padding: 28px 4px 18px;
+            }
+
+            .profile-image {
+                width: 125px;
+                height: 150px;
+            }
+
+            .profile-info h1 {
+                font-size: 50px;
+            }
+
+            .skills {
+                grid-template-columns: 1fr;
+            }
+
+            .skill-number {
+                margin-bottom: 35px;
+            }
+
+            .project {
+                grid-template-columns: 1fr;
+            }
+
+            .project-image {
+                min-height: 210px;
+            }
+
+            .project-info {
+                padding: 25px;
+            }
+
+            .card-footer {
+                font-size: 7px;
+                letter-spacing: 1px;
+            }
+
+            .section,
+            .contact {
+                padding: 75px 0;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                animation: none !important;
+                transition: none !important;
+            }
+
+            .reveal {
+                opacity: 1;
+                transform: none;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-    <!-- =========================================
-         PROFILE
-         ========================================= -->
+    <main>
 
-    <section class="profile-card">
+        <section class="hero">
+            <div class="wall">
+                <div class="wall-light"></div>
 
-        <div class="profile-top">
+                <div class="hanger">
+                    <div class="hook"></div>
+                    <div class="string"></div>
 
-            <span class="status">
-                ● AVAILABLE
-            </span>
+                    <article class="id-card">
+                        <div class="card-hole"></div>
 
-            <span class="id-number">
-                ID • 001
-            </span>
+                        <div class="card-top">
+                            <span class="status">AVAILABLE</span>
+                            <span>ID • 001</span>
+                        </div>
 
-        </div>
+                        <div class="card-content">
+                            <div class="profile-image">
+                                <img src="profile.png" alt="Anshuuu profile photo">
+                            </div>
 
-        <div class="profile-content">
+                            <div class="profile-info">
+                                <p class="small-title">DIGITAL PROFILE</p>
+                                <h1>Anshuuu</h1>
+                                <p class="role">CREATOR • CODER • GAMER</p>
+                                <p class="bio">Building ideas into digital experiences.</p>
 
-            <!-- PROFILE IMAGE -->
+                                <div class="buttons">
+                                    <a href="#projects">VIEW PROJECTS</a>
+                                    <a href="#about" class="outline">ABOUT ME</a>
+                                </div>
+                            </div>
+                        </div>
 
-            <div class="profile-image">
-
-                <img
-                    src="profile.png"
-                    alt="Anshuuu profile photo"
-                >
-
+                        <div class="card-footer">
+                            <span>INDIA</span>
+                            <span>EST. 2026</span>
+                            <span>ANSHUU.ID</span>
+                        </div>
+                    </article>
+                </div>
             </div>
+        </section>
 
-            <!-- PROFILE INFORMATION -->
+        <section class="section reveal">
+            <p class="section-label">01 / SKILLS</p>
+            <h2>What I Do</h2>
 
-            <div class="profile-info">
-
-                <p class="small-title">
-                    DIGITAL PROFILE
-                </p>
-
-                <h1>
-                    Anshuuu
-                </h1>
-
-                <p class="role">
-                    CREATOR • CODER • GAMER
-                </p>
-
-                <p class="bio">
-                    Building ideas into digital experiences.
-                </p>
-
-                <div class="buttons">
-
-                    <a href="#projects">
-                        VIEW PROJECTS
-                    </a>
-
-                    <a
-                        href="#about"
-                        class="outline"
-                    >
-                        ABOUT ME
-                    </a>
-
+            <div class="skills">
+                <div class="skill">
+                    <div class="skill-number">01</div>
+                    <h3>Coding</h3>
+                    <p>Building websites, applications and digital projects.</p>
+                    <div class="skill-tags">
+                        <span>Python</span>
+                        <span>Web</span>
+                        <span>AI</span>
+                    </div>
                 </div>
 
-            </div>
-
-        </div>
-
-        <div class="profile-footer">
-
-            <span>
-                INDIA
-            </span>
-
-            <span>
-                EST. 2026
-            </span>
-
-            <span>
-                ANSHUU.ID
-            </span>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================================
-         SKILLS
-         ========================================= -->
-
-    <section class="section">
-
-        <p class="section-label">
-            01 / SKILLS
-        </p>
-
-        <h2>
-            What I Do
-        </h2>
-
-        <div class="skills">
-
-            <!-- CODING -->
-
-            <div class="skill">
-
-                <div class="skill-number">
-                    01
+                <div class="skill">
+                    <div class="skill-number">02</div>
+                    <h3>Editing</h3>
+                    <p>Creating visual content and experimenting with creative ideas.</p>
+                    <div class="skill-tags">
+                        <span>Video</span>
+                        <span>Visual</span>
+                        <span>Creative</span>
+                    </div>
                 </div>
 
-                <h3>
-                    Coding
-                </h3>
+                <div class="skill">
+                    <div class="skill-number">03</div>
+                    <h3>Gaming</h3>
+                    <p>Gaming, exploring digital worlds and competitive experiences.</p>
+                    <div class="skill-tags">
+                        <span>Gaming</span>
+                        <span>Esports</span>
+                        <span>FPS</span>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-                <p>
-                    Building websites, applications
-                    and digital projects.
-                </p>
+        <section class="section reveal" id="projects">
+            <p class="section-label">02 / PROJECTS</p>
+            <h2>Selected Work</h2>
 
-                <div class="skill-tags">
+            <div class="projects">
 
-                    <span>
-                        Python
-                    </span>
+                <div class="project">
+                    <div class="project-image">
+                        <img src="anshu-ai.png" alt="ANSHU AI project screenshot">
+                    </div>
 
-                    <span>
-                        Web
-                    </span>
+                    <div class="project-info">
+                        <span>AI • PYTHON</span>
+                        <h3>ANSHU AI</h3>
+                        <p>A personal AI assistant built to explore voice interaction, desktop automation and smart assistance.</p>
+                        <a href="anshu-ai.html">VIEW PROJECT ↗</a>
+                    </div>
+                </div>
 
-                    <span>
-                        AI
-                    </span>
+                <div class="project">
+                    <div class="project-image placeholder">
+                        <span>PROJECT 02</span>
+                    </div>
 
+                    <div class="project-info">
+                        <span>WEB • PLATFORM</span>
+                        <h3>CLASS PORTAL</h3>
+                        <p>A student platform for sharing notes, PDFs and useful resources.</p>
+                        <a href="#">COMING SOON ↗</a>
+                    </div>
+                </div>
+
+                <div class="project">
+                    <div class="project-image placeholder">
+                        <span>PROJECT 03</span>
+                    </div>
+
+                    <div class="project-info">
+                        <span>PYTHON • MUSIC</span>
+                        <h3>MUSIC PLAYER</h3>
+                        <p>A custom desktop music player with playlist and playback features.</p>
+                        <a href="#">COMING SOON ↗</a>
+                    </div>
                 </div>
 
             </div>
+        </section>
 
+        <section class="section about reveal" id="about">
+            <p class="section-label">03 / ABOUT</p>
+            <h2>About Me</h2>
 
-            <!-- EDITING -->
+            <p class="about-text">
+                I'm Anshuuu, a creator interested in coding, gaming, editing and technology.
+                I enjoy building projects, learning new skills and turning ideas into something
+                people can actually use.
+            </p>
+        </section>
 
-            <div class="skill">
+        <section class="contact reveal">
+            <p class="section-label">04 / CONNECT</p>
+            <h2>Let's Connect.</h2>
 
-                <div class="skill-number">
-                    02
-                </div>
-
-                <h3>
-                    Editing
-                </h3>
-
-                <p>
-                    Creating visual content and
-                    experimenting with creative ideas.
-                </p>
-
-                <div class="skill-tags">
-
-                    <span>
-                        Video
-                    </span>
-
-                    <span>
-                        Visual
-                    </span>
-
-                    <span>
-                        Creative
-                    </span>
-
-                </div>
-
+            <div class="socials">
+                <a href="https://www.instagram.com/anshu____1991/" target="_blank" rel="noopener noreferrer">
+                    Instagram ↗
+                </a>
+                <a href="#">Loading.. ↗</a>
+                <a href="#">Loading.. ↗</a>
             </div>
+        </section>
 
-
-            <!-- GAMING -->
-
-            <div class="skill">
-
-                <div class="skill-number">
-                    03
-                </div>
-
-                <h3>
-                    Gaming
-                </h3>
-
-                <p>
-                    Gaming, exploring digital worlds
-                    and competitive experiences.
-                </p>
-
-                <div class="skill-tags">
-
-                    <span>
-                        Gaming
-                    </span>
-
-                    <span>
-                        Esports
-                    </span>
-
-                    <span>
-                        FPS
-                    </span>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================================
-         PROJECTS
-         ========================================= -->
-
-    <section
-        class="section"
-        id="projects"
-    >
-
-        <p class="section-label">
-            02 / PROJECTS
-        </p>
-
-        <h2>
-            Selected Work
-        </h2>
-
-        <div class="projects">
-
-            <!-- ================= ANSHU AI ================= -->
-
-            <div class="project">
-
-                <div class="project-image">
-
-                    <img
-                        src="anshu-ai.png"
-                        alt="ANSHU AI project screenshot"
-                    >
-
-                </div>
-
-                <div class="project-info">
-
-                    <span>
-                        AI • PYTHON
-                    </span>
-
-                    <h3>
-                        ANSHU AI
-                    </h3>
-
-                    <p>
-                        A personal AI assistant built to
-                        explore voice interaction, desktop
-                        automation and smart assistance.
-                    </p>
-
-                    <a href="anshu-ai.html">
-                        VIEW PROJECT ↗
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <!-- ================= CLASS PORTAL ================= -->
-
-            <div class="project">
-
-                <div class="project-image placeholder">
-
-                    <span>
-                        PROJECT 02
-                    </span>
-
-                </div>
-
-                <div class="project-info">
-
-                    <span>
-                        WEB • PLATFORM
-                    </span>
-
-                    <h3>
-                        CLASS PORTAL
-                    </h3>
-
-                    <p>
-                        A student platform for sharing
-                        notes, PDFs and useful resources.
-                    </p>
-
-                    <a href="#">
-                        COMING SOON ↗
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <!-- ================= MUSIC PLAYER ================= -->
-
-            <div class="project">
-
-                <div class="project-image placeholder">
-
-                    <span>
-                        PROJECT 03
-                    </span>
-
-                </div>
-
-                <div class="project-info">
-
-                    <span>
-                        PYTHON • MUSIC
-                    </span>
-
-                    <h3>
-                        MUSIC PLAYER
-                    </h3>
-
-                    <p>
-                        A custom desktop music player
-                        with playlist and playback features.
-                    </p>
-
-                    <a href="#">
-                        COMING SOON ↗
-                    </a>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================================
-         ABOUT
-         ========================================= -->
-
-    <section
-        class="section about"
-        id="about"
-    >
-
-        <p class="section-label">
-            03 / ABOUT
-        </p>
-
-        <h2>
-            About Me
-        </h2>
-
-        <p class="about-text">
-
-            I'm Anshuuu, a creator interested in
-            coding, gaming, editing and technology.
-
-            I enjoy building projects, learning new
-            skills and turning ideas into something
-            people can actually use.
-
-        </p>
-
-    </section>
-
-
-    <!-- =========================================
-         CONNECT
-         ========================================= -->
-
-    <section class="contact">
-
-        <p class="section-label">
-            04 / CONNECT
-        </p>
-
-        <h2>
-            Let's Connect.
-        </h2>
-
-        <div class="socials">
-
-            <a
-                href="https://www.instagram.com/anshu____1991/"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                Instagram ↗
-            </a>
-
-            <a href="#">
-                Loading.. ↗
-            </a>
-
-            <a href="#">
-                Loading.. ↗
-            </a>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================================
-         FOOTER
-         ========================================= -->
+    </main>
 
     <footer>
-
         © 2026 ANSHUU • DIGITAL PROFILE
-
     </footer>
 
+    <script>
+        const revealItems = document.querySelectorAll(".reveal");
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("show");
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.12
+        });
+
+        revealItems.forEach((item) => observer.observe(item));
+    </script>
 
 </body>
-
 </html>
