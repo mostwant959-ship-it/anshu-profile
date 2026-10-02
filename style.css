@@ -1,225 +1,437 @@
-```css
-/* ===== PREMIUM CONNECT BUTTONS ===== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
-.socials {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 14px;
-    margin-top: 35px;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.socials a {
-    --mouse-x: 50%;
-    --mouse-y: 50%;
+html {
+    scroll-behavior: smooth;
+}
 
+body {
+    background: #080808;
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Background */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.18;
+    background-image:
+        linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+    background-size: 45px 45px;
+    z-index: -1;
+}
+
+/* Main container */
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+    padding: 70px 0;
+}
+
+/* Profile Card */
+.profile-card {
     position: relative;
-    isolation: isolate;
-    overflow: hidden;
+    max-width: 650px;
+    margin: 80px auto 100px;
+    padding: 35px;
+    background: rgba(18, 18, 18, 0.92);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 24px;
+    box-shadow:
+        0 25px 80px rgba(0,0,0,0.6),
+        inset 0 1px rgba(255,255,255,0.05);
+    overflow: visible;
+}
 
+/* Hanging string */
+.profile-card::before {
+    content: "";
+    position: absolute;
+    top: -85px;
+    left: 50%;
+    width: 2px;
+    height: 85px;
+    background: #777;
+    transform: translateX(-50%);
+}
+
+/* Hook */
+.profile-card::after {
+    content: "";
+    position: absolute;
+    top: -100px;
+    left: 50%;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #aaa;
+    border-radius: 50%;
+    transform: translateX(-50%);
+    background: #080808;
+}
+
+/* Top section */
+.profile-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.status {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: #aaa;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.status::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 12px rgba(255,255,255,0.7);
+}
+
+.id-number {
+    font-size: 12px;
+    color: #666;
+    letter-spacing: 1px;
+}
+
+/* Profile content */
+.profile-content {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.profile-image {
+    width: 145px;
+    height: 145px;
+    flex-shrink: 0;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.15);
+    background: #111;
+}
+
+.profile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.profile-info {
+    flex: 1;
+}
+
+.small-title {
+    font-size: 11px;
+    color: #777;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 8px;
+}
+
+.profile-info h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(40px, 7vw, 70px);
+    line-height: 0.95;
+    letter-spacing: -3px;
+    margin-bottom: 14px;
+}
+
+.role {
+    font-size: 14px;
+    color: #aaa;
+    margin-bottom: 12px;
+}
+
+.bio {
+    color: #777;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+/* About */
+.about {
+    max-width: 850px;
+    margin: 0 auto 100px;
+    padding: 50px 0;
+}
+
+.about-header {
+    margin-bottom: 30px;
+}
+
+.about-header span {
+    font-size: 11px;
+    color: #777;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.about h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(35px, 6vw, 60px);
+    margin-top: 8px;
+    letter-spacing: -2px;
+}
+
+.about p {
+    max-width: 700px;
+    color: #999;
+    line-height: 1.9;
+    font-size: 15px;
+}
+
+/* Buttons */
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 28px;
+}
+
+.buttons a {
+    position: relative;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
-
-    min-width: 155px;
-    min-height: 50px;
-    padding: 13px 19px;
-
-    border: 1px solid rgba(255,255,255,.15);
+    min-width: 140px;
+    padding: 13px 20px;
+    border: 1px solid rgba(255,255,255,0.18);
     border-radius: 12px;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255,255,255,.09),
-            rgba(255,255,255,.025)
-        ),
-        rgba(10,10,10,.9);
-
-    color: #d8d8d8;
-
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 1.8px;
-
-    box-shadow:
-        0 10px 25px rgba(0,0,0,.3),
-        inset 0 1px 0 rgba(255,255,255,.08);
-
-    transition:
-        transform .35s cubic-bezier(.2,.8,.2,1),
-        border-color .35s ease,
-        box-shadow .35s ease,
-        color .35s ease;
-}
-
-/* Moving shine */
-.socials a::before {
-    content: "";
-
-    position: absolute;
-    inset: -60%;
-
-    background:
-        linear-gradient(
-            120deg,
-            transparent 40%,
-            rgba(255,255,255,.28) 50%,
-            transparent 60%
-        );
-
-    transform: translateX(-100%) rotate(12deg);
-
-    transition:
-        transform .8s cubic-bezier(.2,.8,.2,1);
-
-    pointer-events: none;
-}
-
-/* Cursor-follow glow */
-.socials a::after {
-    content: "";
-
-    position: absolute;
-
-    width: 130px;
-    height: 130px;
-
-    left: var(--mouse-x);
-    top: var(--mouse-y);
-
-    transform: translate(-50%, -50%);
-
-    border-radius: 50%;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(255,255,255,.16),
-            rgba(255,255,255,.05) 35%,
-            transparent 70%
-        );
-
-    opacity: 0;
-
-    transition: opacity .25s ease;
-
-    pointer-events: none;
-}
-
-/* Hover */
-.socials a:hover {
-    transform:
-        translateY(-7px)
-        scale(1.04);
-
     color: #fff;
-
-    border-color:
-        rgba(255,255,255,.38);
-
-    box-shadow:
-        0 18px 40px rgba(0,0,0,.55),
-        0 0 30px rgba(255,255,255,.07),
-        inset 0 1px 0 rgba(255,255,255,.16);
-}
-
-.socials a:hover::before {
-    transform: translateX(100%) rotate(12deg);
-}
-
-.socials a:hover::after {
-    opacity: 1;
-}
-
-/* Click */
-.socials a:active {
-    transform:
-        translateY(-1px)
-        scale(.97);
-}
-
-/* Arrow animation */
-.socials a .btn-arrow {
+    text-decoration: none;
+    font-size: 13px;
+    overflow: hidden;
     transition:
-        transform .3s ease;
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
-.socials a:hover .btn-arrow {
-    transform:
-        translate(4px, -4px);
-}
-
-/* Instagram icon */
-.instagram-icon {
-    width: 18px;
-    height: 18px;
-
-    border: 1.5px solid currentColor;
-    border-radius: 5px;
-
-    position: relative;
-
-    transition:
-        transform .35s ease;
-}
-
-.instagram-icon::before {
+.buttons a::before {
     content: "";
-
     position: absolute;
-
-    width: 6px;
-    height: 6px;
-
-    left: 50%;
-    top: 50%;
-
-    transform:
-        translate(-50%, -50%);
-
-    border: 1.5px solid currentColor;
-    border-radius: 50%;
+    inset: 0;
+    background: #fff;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+    z-index: -1;
 }
 
-.instagram-icon::after {
-    content: "";
-
-    position: absolute;
-
-    width: 3px;
-    height: 3px;
-
-    right: 2px;
-    top: 2px;
-
-    border-radius: 50%;
-    background: currentColor;
+.buttons a:hover {
+    color: #000;
+    transform: translateY(-5px);
+    border-color: #fff;
+    box-shadow: 0 12px 30px rgba(255,255,255,0.08);
 }
 
-.socials a:hover .instagram-icon {
-    transform:
-        rotate(-10deg)
-        scale(1.12);
+.buttons a:hover::before {
+    transform: translateY(0);
 }
 
-/* Ripple animation */
-@keyframes buttonRipple {
-    0% {
-        box-shadow:
-            0 0 0 0 rgba(255,255,255,.22),
-            0 18px 40px rgba(0,0,0,.55);
+.outline {
+    background: transparent;
+}
+
+/* Projects */
+.projects {
+    max-width: 1000px;
+    margin: auto;
+}
+
+.projects-header {
+    margin-bottom: 35px;
+}
+
+.projects-header span {
+    font-size: 11px;
+    color: #777;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.projects-header h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(35px, 6vw, 55px);
+    letter-spacing: -2px;
+    margin-top: 8px;
+}
+
+.project {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    padding: 25px;
+    margin-bottom: 25px;
+    background: #101010;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 20px;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.project:hover {
+    transform: translateY(-6px);
+    border-color: rgba(255,255,255,0.2);
+}
+
+.project-image {
+    width: 100%;
+    height: 260px;
+    border-radius: 15px;
+    overflow: hidden;
+    background: #080808;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.project:hover .project-image img {
+    transform: scale(1.05);
+}
+
+.project h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 25px;
+    margin-bottom: 12px;
+}
+
+.project p {
+    color: #888;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+/* Footer */
+.profile-footer {
+    text-align: center;
+    margin-top: 100px;
+    padding: 30px 0;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    color: #555;
+    font-size: 12px;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+::-webkit-scrollbar-track {
+    background: #080808;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Selection */
+::selection {
+    background: #fff;
+    color: #000;
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+
+    .container {
+        width: 92%;
+        padding: 50px 0;
     }
 
-    100% {
-        box-shadow:
-            0 0 0 16px rgba(255,255,255,0),
-            0 18px 40px rgba(0,0,0,.55);
+    .profile-card {
+        margin-top: 75px;
+        padding: 25px;
+        border-radius: 20px;
+    }
+
+    .profile-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .profile-image {
+        width: 125px;
+        height: 125px;
+    }
+
+    .profile-info h1 {
+        font-size: 48px;
+        letter-spacing: -2px;
+    }
+
+    .buttons {
+        justify-content: center;
+    }
+
+    .buttons a {
+        min-width: 130px;
+    }
+
+    .about {
+        padding: 30px 0;
+        margin-bottom: 60px;
+    }
+
+    .about p {
+        font-size: 14px;
+    }
+
+    .project {
+        grid-template-columns: 1fr;
+        padding: 18px;
+    }
+
+    .project-image {
+        height: 220px;
     }
 }
 
-.socials a.ripple {
-    animation:
-        buttonRipple .55s ease-out;
+@media (max-width: 420px) {
+
+    .profile-card {
+        padding: 20px;
+    }
+
+    .profile-info h1 {
+        font-size: 42px;
+    }
+
+    .profile-top {
+        margin-bottom: 25px;
+    }
+
+    .buttons a {
+        width: 100%;
+    }
 }
-```
